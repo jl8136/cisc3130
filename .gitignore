@@ -1,5 +1,16 @@
 *.html
+*.log
 .DS_Store
 Thumbs.db
-.idea/
 .vscode/
+
+# Jetbrain IDE stuff
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+target/
+build/
+.gradle/
+*.class
