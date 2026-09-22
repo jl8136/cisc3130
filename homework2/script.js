@@ -1,9 +1,13 @@
+//------------------------------------------------------
 // Data set
+//------------------------------------------------------
 const arr = [122,61,23,1,2,5,44,12,99,33,66,14,100]
 console.log(`Original Array:
     [${arr}]`)
 
+//------------------------------------------------------
 // Output
+//------------------------------------------------------
 const bubbleSortedArray = bubbleSort([...arr])
 console.log(`Bubble Sort Result:
     [${bubbleSortedArray}]`)
@@ -28,8 +32,9 @@ targets.forEach((v,i) => {
     )
 })
 
-
+//------------------------------------------------------
 // Bubble Sort
+//------------------------------------------------------
 function bubbleSort(arr) {    
     if (arr.length <= 1) return arr
     for (let i=0; i<arr.length - 1;i++) {
@@ -44,8 +49,9 @@ function bubbleSort(arr) {
     return arr
 }
 
-
+//------------------------------------------------------
 // Merge Sort
+//------------------------------------------------------
 function mergeSort(arr) {
     if (arr.length <= 1) return arr
 
@@ -91,8 +97,9 @@ function merge(left, right) {
     return mergedArray
 }
 
-
+//------------------------------------------------------
 // Linear Search
+//------------------------------------------------------
 function linearSearch(arr,value) {
     if (arr.length === 0) return -1;
     for (let i=0; i<arr.length; i++) {
@@ -101,8 +108,9 @@ function linearSearch(arr,value) {
     return -1
 }
 
-
+//------------------------------------------------------
 // Binary Search
+//------------------------------------------------------
 function binarySearch(arr,value) {
         if (arr.length === 0) return -1
         let left = 0
