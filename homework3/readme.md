@@ -73,4 +73,83 @@ People waiting in line are a first in, first out queue example because since the
 they will be the first to be served and get out of the line.
 
 ## Part 15 — Stack vs Queue
+#### Scenario 1 — Undo Feature
+#### A text editor remembers your recent actions.
+#### If you type:
+* A
+* B
+* C
+#### the most recent action should be undone first.
+#### Stack or Queue?
+#### Explain.
+This would be a stack because it is last in, first out. C would be the undone first since it is the most recent action pushed to the undo Stack.
+
+## Scenario 2 — Printer
+#### Three students send documents to a printer.
+#### The first document submitted should normally print first.
+#### Stack or Queue?
+#### Explain.
+This is an example of a queue because the first item sent to the printing queue will be printed and would be first in, first out.
+
+## Scenario 3 — Browser Back Button
+#### You visit:
+Google
+YouTube
+GitHub
+Amazon
+#### You click the Back button.
+#### Which page should appear first?
+#### What ADT does this resemble?
+This resembles a stack because it's last in, first out. If you were on amazon, and you click the
+back button, Github would appear.
+
+## Scenario 4 — Customer Service
+#### Customers are waiting to talk to an employee.
+#### The person who arrived first should normally be helped first.
+#### Stack or Queue?
+This would be a queue because it's first in, first out. The person first in line would get served and
+get dequeued before the next person in line gets served. 
+
+## Scenario 5 — Plates
+#### You place five plates on top of one another.
+#### Which ADT does this represent?
+#### Explain.
+This would be a stack because it's last in, first out. Ideally, you take the top plate first which is the last one to be put on top of the stack.
+
+## Part 16 — Predict the Output
+### Stack
+#### Start with an empty Stack.
+```java
+push(7)
+push(12)
+push(18)
+pop()
+push(22)
+peek()
+```
+## Question 14 - What does pop() return?
+18
+
+## Question 15 - What does the final peek() return?
+22
+
+### Queue
+#### Start with an empty Queue.
+```java
+enqueue(7)
+enqueue(12)
+enqueue(18)
+dequeue()
+enqueue(22)
+peek()
+```
+## Question 16 - What does dequeue() return?
+7
+
+## Question 17 - What does the final peek() return?
+12
+
+#### Part 17 — Compare the ADTs
+#### Complete the table.
+
 
