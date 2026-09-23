@@ -44,6 +44,33 @@ pop() would remove D because it was added last.
 * Function calls
 #### Explain your example.
 The undo operation is a real-world example of a stack that reverses your most recent action. 
-For example, if I'm organizing some photos in Dolphin (KDE file manager), I might batch rename some files, move them to another directory,
+For example, if I'm organizing some photos in a file manager like Dolphin from KDE, I might batch rename some files, move them to another directory,
 then trash some files. Each action would be pushed to the stack. If I want to recover files from trash, executing undo would pop the last added action 
-from the stack and reverse what I just did in Dolphin. It would save time from having to manually move files back from `~/.local/share/Trash/files`.
+from the stack and reverse what I just did. It would save time from having to manually move files back from `~/.local/share/Trash/files`.
+
+## Question 10 - What does FIFO mean?
+FIFO means first in, first out. The first thing in the queue gets processed first before it moves to the next.
+
+## Question 11 - Why was 15 removed before 55?
+The queue is FIFO and 15 was first, so it would be the first to be dequeued if `dequeue()` was called. 
+
+## Question 12 -If customers enter a line in this order:
+* Alex
+* Maria
+* John
+* Sarah
+#### who should leave the Queue first?
+Alex would leave the queue first because they are the first person to enter.
+
+## Question 13 - Give one real-world or software example where a Queue could be useful.
+#### Possible examples:
+* Printer jobs
+* Customer-service requests
+* Tasks waiting to be processed
+* People waiting in line
+#### Explain your answer.
+People waiting in line are a first in, first out queue example because since they are first in line, 
+they will be the first to be served and get out of the line.
+
+## Part 15 — Stack vs Queue
+
