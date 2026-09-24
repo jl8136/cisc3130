@@ -1,16 +1,14 @@
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
-        Stack stack = new Stack();
+        Stack stack = new Stack(1000);
         System.out.println("Creating Stack");
-        stack.push(15);
-        stack.push(25);
-        stack.push(35);
-        stack.push(45);
-        stack.push(55);
-        System.out.println("Pushed  to the stack:\n15\n25\n35\n45\n55");
         try {
+            stack.push(15);
+            stack.push(25);
+            stack.push(35);
+            stack.push(45);
+            stack.push(55);
+            System.out.println("Pushed  to the stack:\n15\n25\n35\n45\n55");
             System.out.println("Top item: " + stack.peek()); // 55
             System.out.println("Removing: " + stack.pop()); // 55
             System.out.println("Removing: " + stack.pop()); // 45
@@ -24,18 +22,18 @@ public class Main {
         System.out.println();
         System.out.println("Creating new queue");
         Queue queue = new Queue(100);
-        System.out.println("Adding to the queue:\n15\n25\n35\n45\n55");
-        queue.enqueue(15);
-        queue.enqueue(25);
-        queue.enqueue(35);
-        queue.enqueue(45);
-        queue.enqueue(55);
         try {
+            queue.enqueue(15);
+            queue.enqueue(25);
+            queue.enqueue(35);
+            queue.enqueue(45);
+            queue.enqueue(55);
+            System.out.println("Enqueued to the queue:\n15\n25\n35\n45\n55");
             System.out.println("Front item: " + queue.peek());
-            System.out.println("Removing: " + queue.dequeue());
-            System.out.println("Removing: " + queue.dequeue());
+            System.out.println("Dequeueing: " + queue.dequeue());
+            System.out.println("Dequeueing: " + queue.dequeue());
             System.out.println("New front: " + queue.peek());
-            System.out.println("Is queue emtpy?: " + queue.isEmpty());
+            System.out.println("Is queue empty?: " + queue.isEmpty());
 
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -49,31 +47,38 @@ public class Main {
 // Stack
 // ----------------------------------------------------------------------------------------------------
 class Stack {
-    private final ArrayList<Integer> stack;
+    private int[] stack;
+    private int stackSize;
 
-    public Stack() {
-        this.stack = new ArrayList<>();
+    public Stack(int size) {
+        this.stack = new int[size];
+        this.stackSize = 0;
     }
-    public void push(int value) {
-        stack.add(value);
+
+    public void push(int value) throws Exception {
+        if (this.stackSize >= stack.length) throw new Exception("Stack full, cannot add");
+        this.stack[this.stackSize] = value;
+        this.stackSize++;
     }
 
     public int pop() throws Exception {
-       if (this.isEmpty()) {
-           throw new Exception("Stack is empty");
-       }
-        return stack.remove(stack.size() - 1);
+        if (this.isEmpty()) throw new Exception("Empty Stack, nothing to pop");
+        int top = this.stack[stackSize - 1];
+        this.stackSize--;
+        return top;
     }
 
     public int peek() throws Exception {
-        if (this.isEmpty()) {
-            throw new Exception("Stack is empty");
-        }
-        return stack.get(stack.size() - 1);
+        if (this.isEmpty()) throw new Exception("Empty Stack, nothing to peek");
+        return this.stack[stackSize-1];
     }
 
     public boolean isEmpty() {
-        return stack.isEmpty();
+        return this.stackSize == 0;
+    }
+
+    public int size() {
+        return this.stackSize;
     }
 }
 
@@ -90,24 +95,24 @@ class Queue {
         this.queueSize = 0;
     }
 
-    public void enqueue(int value) {
-        if (this.queueSize >= queue.length) return;
+    public void enqueue(int value) throws Exception {
+        if (this.queueSize >= queue.length) throw new Exception("Full queue, cannot add");
         this.queue[queueSize] = value;
         this.queueSize++;
     }
 
     public int dequeue() throws Exception {
-        if (isEmpty()) throw new Exception("Empty queue");
+        if (this.isEmpty()) throw new Exception("Empty queue, nothing to dequeue");
         int front = this.queue[0];
         for (int i = 0; i < this.queueSize - 1; i++) {
             this.queue[i] = this.queue[i + 1];
         }
-        queueSize--;
+        this.queueSize--;
         return front;
     }
 
     public int peek() throws Exception {
-        if (isEmpty()) throw new Exception("Empty queue");
+        if (isEmpty()) throw new Exception("Empty queue, nothing to peek");
         return this.queue[0];
     }
 
