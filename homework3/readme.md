@@ -8,7 +8,7 @@ IDE / Editor: IntelliJ IDEA
 ADT stands for abstract data types.
 
 ## Question 2 - In your own words, what is an Abstract Data Type?
-Abstract Data Type describes what a data type does.
+Abstract Data Type describes what a data type should have and do.
 
 ## Question 3 - What is the difference between an ADT and its implementation?
 ### Use the following idea in your explanation: WHAT versus: HOW
@@ -72,7 +72,7 @@ Alex would leave the queue first because they are the first person to enter.
 People waiting in line are a first in, first out queue example because since they are first in line, 
 they will be the first to be served and get out of the line.
 
-## Part 15 — Stack vs Queue
+# Part 15 — Stack vs Queue
 #### Scenario 1 — Undo Feature
 #### A text editor remembers your recent actions.
 #### If you type:
@@ -101,7 +101,7 @@ Amazon
 #### Which page should appear first?
 #### What ADT does this resemble?
 This resembles a stack because it's last in, first out. If you were on amazon, and you click the
-back button, Github would appear.
+back button, GitHub would appear.
 
 ## Scenario 4 — Customer Service
 #### Customers are waiting to talk to an employee.
@@ -116,40 +116,35 @@ get dequeued before the next person in line gets served.
 #### Explain.
 This would be a stack because it's last in, first out. Ideally, you take the top plate first which is the last one to be put on top of the stack.
 
-## Part 16 — Predict the Output
-### Stack
-#### Start with an empty Stack.
-```java
-push(7)
-push(12)
-push(18)
-pop()
-push(22)
-peek()
-```
-## Question 14 - What does pop() return?
+# Part 16 — Predict the Output
+
+#### Question 14 - What does pop() return?
 18
 
-## Question 15 - What does the final peek() return?
+#### Question 15 - What does the final peek() return?
 22
 
-### Queue
-#### Start with an empty Queue.
-```java
-enqueue(7)
-enqueue(12)
-enqueue(18)
-dequeue()
-enqueue(22)
-peek()
-```
-## Question 16 - What does dequeue() return?
+#### Question 16 - What does dequeue() return?
 7
 
-## Question 17 - What does the final peek() return?
+#### Question 17 - What does the final peek() return?
 12
 
-#### Part 17 — Compare the ADTs
+# Part 17 — Compare the ADTs
 #### Complete the table.
 
+| Feature            | Stack                | Queue          |
+|--------------------|----------------------|----------------|
+| Rule               | LIFO                 | FIFO           |
+| Add operation      | push()               | enqueue()      |
+| Remove operation   | pop()                | dequeue()      |
+| View next item     | peek()               | peek()         |
+| First item removed | most recent          | oldest         |
 
+# Part 18 — Connect the ADT to the Implementation. Answer the following.
+#### Question 18 - If you implement a Stack using an array, which part is the ADT?
+The methods of the Stack that does the adding and removing operations
+#### Question 19 - Which part is the implementation?
+The actual code of the methods, variables, conditions, etc.
+#### Question 20 -If you replace the array with a linked list but keep the same Stack operations, did the ADT change? Explain.
+It did not because ADT just defines the methods and behavior the class will be
