@@ -1,15 +1,15 @@
 public class Song {
-    private int id;
+    private String id;
     private String title;
     private String artist;
 
-    public Song(int id, String title, String artist) {
+    public Song(String id, String title, String artist) {
         this.id = id;
         this.title = title;
         this.artist = artist;
     }
 
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
