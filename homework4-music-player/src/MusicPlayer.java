@@ -1,7 +1,10 @@
-import java.util.ArrayDeque;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.Stack;
+// Playlist: built Doubly linked list
+// Library: reused HashMap
+// Up next: reused ArrayDeque
+// History: reused Stack
+// Play counts: reused HashMap
+
+import java.util.*;
 
 public class MusicPlayer {
     private PlaylistNode head;
@@ -14,6 +17,8 @@ public class MusicPlayer {
     ArrayDeque<Song> queue = new ArrayDeque<>();
 
     private Song current = null;
+
+    private boolean repeat = false;
 
 
     public boolean addSong(String id, String title, String artist) {
@@ -84,10 +89,7 @@ public class MusicPlayer {
 
         if (nextSong == null && current != null) {
             PlaylistNode currentNode = library.get(current.getId());
-            PlaylistNode check = null;
-            if (currentNode != null) {
-                check = currentNode.next;
-            }
+            PlaylistNode check = currentNode.next;
 
             while (check != null) {
                 if (library.containsKey(check.song.getId())) {
@@ -98,6 +100,10 @@ public class MusicPlayer {
             }
         }
 
+        // repeat check
+        if (nextSong == null && repeat && head != null) {
+            nextSong = head.song;
+        }
         if (nextSong == null) return null;
 
         if (current != null) history.push(current);
@@ -139,7 +145,6 @@ public class MusicPlayer {
 
     public ArrayList<String> showUpNext() {
         ArrayList<String> list = new ArrayList<>();
-
         if (!queue.isEmpty()) {
             for (Song song : queue) {
                 if (library.containsKey(song.getId())) {
@@ -147,21 +152,6 @@ public class MusicPlayer {
                 }
             }
         }
-        else if (current != null) {
-            PlaylistNode currNode = library.get(current.getId());
-            PlaylistNode node = null;
-            if (currNode != null) {
-                node = currNode.next;
-            }
-
-            while (node != null) {
-                if (library.containsKey(node.song.getId())) {
-                    list.add(node.song.getTitle());
-                }
-                node = node.next;
-            }
-        }
-
         return list;
     }
 
@@ -202,6 +192,25 @@ public class MusicPlayer {
             count++;
             playCounts.put(song.getId(), count);
         }
+    }
+
+    // extra credit
+    public ArrayList<String> topSongs(int n) {
+        ArrayList<Map.Entry<String,Integer>> decend = new ArrayList<>(playCounts.entrySet());
+        decend.sort((a,b) -> b.getValue().compareTo(a.getValue()));
+
+        ArrayList<String> topN = new ArrayList<>();
+        for (int i=0; i<n && i<decend.size(); i++) {
+            String id = decend.get(i).getKey();
+            PlaylistNode node = library.get(id);
+            topN.add(node.song.getTitle());
+        }
+
+        return topN;
+    }
+
+    public void setRepeat(boolean val) {
+        this.repeat = val;
     }
 }
 

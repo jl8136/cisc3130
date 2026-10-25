@@ -1,0 +1,29 @@
+playlist: [Night Drive, Slow Tide, Copper Sky, Static Bloom, Low Orbit, Glass Rivers]
+--- Extra Credit 1 Repeat mode ---
+repeat mode off: 
+first song: Night Drive
+next: Slow Tide
+next: Copper Sky
+next: Static Bloom
+next: Low Orbit
+next: Glass Rivers
+next: null
+
+repeat mode on: 
+first song: Night Drive
+next: Slow Tide
+next: Copper Sky
+next: Static Bloom
+next: Low Orbit
+next: Glass Rivers
+next: Night Drive
+next: Slow Tide
+next: Copper Sky
+next: Static Bloom
+next: Low Orbit
+next: Glass Rivers
+next: Night Drive
+
+--- Extra Credit 2 Top Songs ---
+top all-time plays: [Glass Rivers, Low Orbit, Static Bloom, Copper Sky, Slow Tide, Night Drive]
+top 3 plays: [Glass Rivers, Low Orbit, Static Bloom]
